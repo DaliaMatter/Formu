@@ -22,13 +22,6 @@ class CreateLikesTable extends Migration
                 ->constrained()
                 ->onDelete('cascade');
 
-            $table->unsignedBigInteger('question_id');
-            $table->foreign('question_id')
-                ->references('id')
-                ->on('questions')
-                ->constrained()
-                ->onDelete('cascade');
-
             $table->unsignedBigInteger('reply_id');
             $table->foreign('reply_id')
                 ->references('id')
