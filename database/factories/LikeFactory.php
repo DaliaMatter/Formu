@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Like;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,7 +24,8 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::inRandomOrder()->first()->id,
+            // 'reply_id' => Reply::inRandomOrder()->first()->id
         ];
     }
 }

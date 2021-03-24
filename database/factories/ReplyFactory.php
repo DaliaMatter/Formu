@@ -3,8 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Reply;
+use App\Models\User;
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+
 
 class ReplyFactory extends Factory
 {
@@ -23,7 +26,10 @@ class ReplyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'body' => $this->faker->text,
+            'question_id' => Question::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id
+
         ];
     }
 }

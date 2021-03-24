@@ -37,4 +37,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all of the questions for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions(): HasMany
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    /**
+     * Get all of the likes for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
+
+
 }
