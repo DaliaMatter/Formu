@@ -9,12 +9,31 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $with = [
+        'category'
+    ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title', 'slug', 'body', 'category_id', 'user_id'
+    ];
+
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+
+    // }
+
     /**
      * Get the user that owns the Question
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -35,7 +54,7 @@ class Question extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category(): BelongsTo
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
