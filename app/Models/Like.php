@@ -14,7 +14,7 @@ class Like extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -24,7 +24,7 @@ class Like extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function reply(): BelongsTo
+    public function reply()
     {
         return $this->belongsTo(Reply::class);
     }

@@ -43,7 +43,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function questions(): HasMany
+    public function questions()
     {
         return $this->hasMany(Question::class);
     }
@@ -53,7 +53,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function likes(): HasMany
+    public function likes()
     {
         return $this->hasMany(Like::class);
     }

@@ -43,7 +43,7 @@ class Question extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function replies(): HasMany
+    public function replies()
     {
         return $this->hasMany(Reply::class);
     }
