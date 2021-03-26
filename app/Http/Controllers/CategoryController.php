@@ -14,18 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Category::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +26,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->all());
+        return response('Created', 200);
     }
 
     /**
@@ -46,18 +38,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
-    {
-        //
+        return $category;
     }
 
     /**
@@ -69,7 +50,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return response('Updated', 200);
     }
 
     /**
@@ -80,6 +62,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->questions()->delete();
+        $category->delete();
+
+        return response('Deleted', 200);
+
     }
 }
